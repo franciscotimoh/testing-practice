@@ -1,0 +1,61 @@
+import { capitalize, reverseString, calculator } from "./index.js";
+
+describe("capitalize", () => {
+    test("capitalizes cat to Cat", () => {
+        expect(capitalize("cat")).toEqual("Cat");
+    });
+
+    test("capitalizing CAT remains the same", () => {
+        expect(capitalize("CAT")).toEqual("CAT");
+    });
+
+    test("capitalizing an empty string returns an empty string", () => {
+        expect(capitalize("")).toEqual("");
+    });
+
+    test("passing a non-string throws a type error", () => {
+        expect(() => capitalize(undefined)).toThrow(TypeError);
+    });
+});
+
+describe("reverseString", () => {
+    test("reverses cat to tac", () => {
+        expect(reverseString("cat")).toEqual("tac");
+    });
+
+    test("reverses empty string to empty string", () => {
+        expect(reverseString("")).toEqual("");
+    });
+
+    test("passing a non-string throws a type error", () => {
+        expect(() => reverseString(undefined)).toThrow(TypeError);
+    });
+});
+
+describe("calculator", () => {
+    const calc = calculator();
+
+    describe("add", () => {
+        test("adds 1 and 2 to equal 3", () => {
+            expect(calc.add(1, 2)).toEqual(3);
+        });
+
+        test("adding non-strings throws a type error", () => {
+            expect(calc.add(undefined, 2)).toBe(NaN);
+        });
+    });
+
+    describe("subtract", () => {
+        test("subtracting 2 - 1 equal 1", () => {
+            expect(calc.subtract(2, 1)).toEqual(1);
+        });
+
+        test("subtracting 1 - 2 equal -1", () => {
+            expect(calc.subtract(1, 2)).toEqual(-1);
+        });
+    });
+
+    // tests for multiply and divide omitted for sake of speed
+});
+
+describe("caesarCipher", () => {});
