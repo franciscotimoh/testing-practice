@@ -58,4 +58,14 @@ const caesarCipher = (text, shift) => {
     return encodedArray.join("");
 };
 
-export { capitalize, reverseString, calculator, caesarCipher };
+const analyzeArray = (numbers) => {
+    const average = (array) => array.reduce((a, b) => a + b) / array.length;
+    return {
+        average: average(numbers),
+        min: Math.min(...numbers),
+        max: Math.max(...numbers),
+        length: numbers.length,
+    };
+};
+
+export { capitalize, reverseString, calculator, caesarCipher, analyzeArray };
