@@ -1,4 +1,9 @@
-import { capitalize, reverseString, calculator } from "./index.js";
+import {
+    capitalize,
+    reverseString,
+    calculator,
+    caesarCipher,
+} from "./index.js";
 
 describe("capitalize", () => {
     test("capitalizes cat to Cat", () => {
@@ -58,4 +63,20 @@ describe("calculator", () => {
     // tests for multiply and divide omitted for sake of speed
 });
 
-describe("caesarCipher", () => {});
+describe("caesarCipher", () => {
+    test("encrypts xyz with shift 3 to abc", () => {
+        expect(caesarCipher("xyz", 3)).toEqual("abc");
+    });
+
+    test("encrypts xyz with shift 4 to bcd", () => {
+        expect(caesarCipher("xyz", 4)).toEqual("bcd");
+    });
+
+    test("encrypts XYZ with shift 3 to ABC", () => {
+        expect(caesarCipher("XYZ", 3)).toEqual("ABC");
+    });
+
+    test("encrypts Hello, World! with shift 3 to Khoor, Zruog!", () => {
+        expect(caesarCipher("Hello, World!", 3)).toEqual("Khoor, Zruog!");
+    });
+});
